@@ -10,7 +10,7 @@ Build an effective alarm app using AlarmManager / SyncAdapter / JobScheduler
 
 **Cons**
 - Alarms are wiped out when user reboots so we need to register `RECEIVE_BOOT_COMPLETE` 
-- Allow perrmison WAKE_LOCK. Imagine if there is 20 applications can wake devices at night. Ting .. Ting .. Ting (x20)
+- Allow perrmison WAKE_LOCK. Imagine if there are 20 applications can wake devices at night. Ting .. Ting .. Ting (x20)
 - Be careful when using for network call
 - Poor design cause battery drain.
 
