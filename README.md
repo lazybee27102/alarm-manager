@@ -4,13 +4,13 @@ Build an effective alarm app using AlarmManager / SyncAdapter / JobScheduler
 ### AlarmManager
 
 **Pros**
-- Provide a way to access system alarm service
+- Provide a way to access alarm service.
 - Reduce coupling with lifecycle
-- Can batch alarm services with similar interval of multiple application by using `inexact`
+- Batch alarm services with similar interval times by using `inexact`
 
 **Cons**
-- Alarms are wiped out when user reboots -> Need to register `RECEIVE_BOOT_COMPLETE` 
-- Allow perrmison WAKE_LOCK ???
+- Alarms are wiped out when user reboots so we need to register `RECEIVE_BOOT_COMPLETE` 
+- Allow perrmison WAKE_LOCK. Imagine if there is 20 applications can wake devices at night. Ting .. Ting .. Ting (x20)
 - Be careful when using for network call
 - Poor design cause battery drain.
 
