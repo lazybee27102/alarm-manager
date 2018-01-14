@@ -1,2 +1,2 @@
 # AlarmClock
-Build an effective alarm app using AlarmManager
+Build an effective alarm app using AlarmManager / SyncAdapter / JobScheduler
