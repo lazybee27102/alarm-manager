@@ -2,8 +2,14 @@ package manager.alarm.simple.alarmclock;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.app.job.JobInfo;
+import android.app.job.JobParameters;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,8 +19,13 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import manager.alarm.simple.alarmclock.alarmmanager.AlarmReceiver;
+import manager.alarm.simple.alarmclock.jobscheduler.JobSchedulerService;
+import manager.alarm.simple.alarmclock.service.MultiThreadingService;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = MainActivity.class.getCanonicalName();
+    private static final String SERVICE_NO = "service-no";
 
     private Button btnStartService, btnStopService, btnStartServiceAt10;
 
@@ -30,6 +41,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setupViews();
         registerEvents();
+
+        /*JobScheduler jobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
+        JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(getPackageName(), JobSchedulerService.class.getName())).setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY);
+        jobScheduler.schedule(builder.build());*/
+
+        startServiceWithNo(69);
+        /*for (int i = 0; i < 5; i++) {
+            startServiceWithNo(i);
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                Thread.currentThread().interrupt();
+            }
+        }*/
+    }
+
+    private void startServiceWithNo(int no) {
+        Intent i = new Intent(this, MultiThreadingService.class);
+        i.putExtra(SERVICE_NO, no);
+        startService(i);
     }
 
     private void setupViews() {

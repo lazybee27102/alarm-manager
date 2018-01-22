@@ -14,6 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <service
+            android:name=".jobscheduler.JobSchedulerService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +26,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".AlarmReceiver">
+        <receiver android:name=".alarmmanager.AlarmReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -30,12 +34,14 @@
 
         <!-- Will not be called unless the application explicitly enables it -->
         <receiver
-            android:name=".DeviceBootReceiver"
+            android:name=".alarmmanager.DeviceBootReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <service android:name=".service.MultiThreadingService" />
     </application>
 
 </manifest>

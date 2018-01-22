@@ -1,8 +1,10 @@
-package manager.alarm.simple.alarmclock;
+package manager.alarm.simple.alarmclock.alarmmanager;
 
 
 import android.content.Context;
 import android.os.PowerManager;
+
+import manager.alarm.simple.alarmclock.MainActivity;
 
 public abstract class WakeLocker {
     private static PowerManager.WakeLock wakeLock;
