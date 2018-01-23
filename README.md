@@ -28,7 +28,7 @@ Build an effective alarm app using AlarmManager / SyncAdapter / JobScheduler
 
 **Cons**
 - Only support devices from Lollipop and above
-- Complext to implement
+- Complex to implement
 
 **How to implement?**
 - Create a class that extends `SchdulerService, implement `onStartJob()` and `onStopJob`
