@@ -11,6 +11,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import manager.android.simple.example.localbroadcastmanager.LocalBroadcastManagerActivity;
 import manager.android.simple.example.vibration.VibrationActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
                     case VIBRATION_BROADCAST_RECEIVER:
                         startActivity(new Intent(MainActivity.this, VibrationActivity.class));
                         break;
+                    case LOCAL_BROADCAST_RECEIVER:
+                        startActivity(new Intent(MainActivity.this, LocalBroadcastManagerActivity.class));
+                        break;
                 }
             }
         });
@@ -62,5 +66,6 @@ public class MainActivity extends AppCompatActivity {
         list.add(new Sample("JobScheduler", "This is job scheduler", Sample.SampleName.JOB_SCHEDULER));
         list.add(new Sample("Service And IntentService", "This is Service and IntentService", Sample.SampleName.SERVICE_INTENT_SERVICE));
         list.add(new Sample("BroadcastReceiver", "Vibration", Sample.SampleName.VIBRATION_BROADCAST_RECEIVER));
+        list.add(new Sample("LocalBroadcastReceiver", "Local broadcast receiver", Sample.SampleName.LOCAL_BROADCAST_RECEIVER));
     }
 }

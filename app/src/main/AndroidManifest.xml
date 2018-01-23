@@ -48,6 +48,8 @@
         <activity android:name=".vibration.VibrationActivity" />
 
         <receiver android:name=".vibration.VibrationReceiver" />
+
+        <activity android:name=".localbroadcastmanager.LocalBroadcastManagerActivity"></activity>
     </application>
 
 </manifest>

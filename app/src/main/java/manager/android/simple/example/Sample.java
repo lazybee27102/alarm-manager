@@ -5,7 +5,8 @@ public class Sample {
         ALARM_MANAGER,
         JOB_SCHEDULER,
         SERVICE_INTENT_SERVICE,
-        VIBRATION_BROADCAST_RECEIVER
+        VIBRATION_BROADCAST_RECEIVER,
+        LOCAL_BROADCAST_RECEIVER
     }
 
     private final String title;
