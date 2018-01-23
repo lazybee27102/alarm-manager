@@ -1,4 +1,4 @@
-package manager.alarm.simple.alarmclock;
+package manager.android.simple.example;
 
 import org.junit.Test;
 

@@ -1,15 +1,12 @@
-package manager.alarm.simple.alarmclock;
+package manager.android.simple.example.alarmmanager;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.job.JobInfo;
-import android.app.job.JobParameters;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
-import android.os.Message;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,12 +16,12 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-import manager.alarm.simple.alarmclock.alarmmanager.AlarmReceiver;
-import manager.alarm.simple.alarmclock.jobscheduler.JobSchedulerService;
-import manager.alarm.simple.alarmclock.service.MultiThreadingService;
+import manager.android.simple.example.R;
+import manager.android.simple.example.jobscheduler.JobSchedulerService;
+import manager.android.simple.example.service.MultiTaskService;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    public static final String TAG = MainActivity.class.getCanonicalName();
+public class AlarmManagerActivity extends AppCompatActivity implements View.OnClickListener {
+    public static final String TAG = AlarmManagerActivity.class.getCanonicalName();
     private static final String SERVICE_NO = "service-no";
 
     private Button btnStartService, btnStopService, btnStartServiceAt10;
@@ -34,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_alarm_manager);
 
         Intent alarmIntent = new Intent(this, AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
@@ -42,24 +39,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setupViews();
         registerEvents();
 
-        /*JobScheduler jobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
+        JobScheduler jobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
         JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(getPackageName(), JobSchedulerService.class.getName())).setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY);
-        jobScheduler.schedule(builder.build());*/
+        jobScheduler.schedule(builder.build());
 
         startServiceWithNo(69);
-        /*for (int i = 0; i < 5; i++) {
-            startServiceWithNo(i);
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                Thread.currentThread().interrupt();
-            }
-        }*/
     }
 
     private void startServiceWithNo(int no) {
-        Intent i = new Intent(this, MultiThreadingService.class);
+        Intent i = new Intent(this, MultiTaskService.class);
         i.putExtra(SERVICE_NO, no);
         startService(i);
     }

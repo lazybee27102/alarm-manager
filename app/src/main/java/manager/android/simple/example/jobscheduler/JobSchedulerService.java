@@ -1,4 +1,4 @@
-package manager.alarm.simple.alarmclock.jobscheduler;
+package manager.android.simple.example.jobscheduler;
 
 import android.app.job.JobParameters;
 import android.app.job.JobService;

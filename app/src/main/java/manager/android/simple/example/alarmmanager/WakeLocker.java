@@ -1,10 +1,8 @@
-package manager.alarm.simple.alarmclock.alarmmanager;
+package manager.android.simple.example.alarmmanager;
 
 
 import android.content.Context;
 import android.os.PowerManager;
-
-import manager.alarm.simple.alarmclock.MainActivity;
 
 public abstract class WakeLocker {
     private static PowerManager.WakeLock wakeLock;
@@ -15,7 +13,7 @@ public abstract class WakeLocker {
         PowerManager pm = (PowerManager) ctx.getSystemService(Context.POWER_SERVICE);
         wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK |
                 PowerManager.ACQUIRE_CAUSES_WAKEUP |
-                PowerManager.ON_AFTER_RELEASE, MainActivity.TAG);
+                PowerManager.ON_AFTER_RELEASE, AlarmManagerActivity.TAG);
         wakeLock.acquire();
     }
 

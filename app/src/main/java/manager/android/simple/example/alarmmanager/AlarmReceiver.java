@@ -1,4 +1,4 @@
-package manager.alarm.simple.alarmclock.alarmmanager;
+package manager.android.simple.example.alarmmanager;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

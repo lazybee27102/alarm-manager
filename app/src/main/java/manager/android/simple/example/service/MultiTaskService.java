@@ -1,4 +1,4 @@
-package manager.alarm.simple.alarmclock.service;
+package manager.android.simple.example.service;
 
 import android.app.Service;
 import android.content.Intent;
@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
-public class MultiThreadingService extends Service {
-    private static final String TAG = MultiThreadingService.class.getSimpleName();
+public class MultiTaskService extends Service {
+    private static final String TAG = MultiTaskService.class.getSimpleName();
     private ServiceHandler serviceHandler;
 
     private final class ServiceHandler extends Handler {
