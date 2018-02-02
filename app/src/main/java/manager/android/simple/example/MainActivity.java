@@ -11,7 +11,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import manager.android.simple.example.alarmmanager.AlarmManagerActivity;
 import manager.android.simple.example.localbroadcastmanager.LocalBroadcastManagerActivity;
+import manager.android.simple.example.service.MyIntentService;
 import manager.android.simple.example.vibration.VibrationActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                     case SERVICE_INTENT_SERVICE:
                         break;
                     case ALARM_MANAGER:
-                        Toast.makeText(MainActivity.this, "Start alarm manager", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, AlarmManagerActivity.class));
                         break;
                     case JOB_SCHEDULER:
                         break;

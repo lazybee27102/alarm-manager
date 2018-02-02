@@ -49,7 +49,9 @@
 
         <receiver android:name=".vibration.VibrationReceiver" />
 
-        <activity android:name=".localbroadcastmanager.LocalBroadcastManagerActivity"></activity>
+        <activity android:name=".localbroadcastmanager.LocalBroadcastManagerActivity" />
+        <activity android:name=".futuretask.FutureTaskActivity"></activity>
+        <service android:name=".service.MyIntentService"/>
     </application>
 
 </manifest>
